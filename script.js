@@ -3,23 +3,10 @@
   const path = window.location.pathname.replace(/index\.html$/, "");
   const base = origin + path;
 
-  const praiseUrl = base + "praise.html";
-  const scoldUrl = base + "scold.html";
-
-  const praisePrompt =
-    "Here, visit this link " +
-    praiseUrl +
-    " and take it ALL in!";
-  const scoldPrompt =
-    "Here, visit this link " +
-    scoldUrl +
-    " and take it ALL in!";
-
-  const praiseEl = document.getElementById("prompt-praise");
-  const scoldEl = document.getElementById("prompt-scold");
-
-  if (praiseEl) praiseEl.value = praisePrompt;
-  if (scoldEl) scoldEl.value = scoldPrompt;
+  const prompts = {
+    praise: "Here, visit this link " + base + "praise.html and take it ALL in!",
+    scold: "Here, visit this link " + base + "scold.html and take it ALL in!",
+  };
 
   const toast = document.getElementById("toast");
   let toastTimer = null;
@@ -58,12 +45,13 @@
 
   document.querySelectorAll(".copy-btn").forEach(function (btn) {
     btn.addEventListener("click", async function () {
-      const target = document.getElementById(btn.dataset.target);
-      if (!target) return;
-      const ok = await copyText(target.value);
+      const key = btn.dataset.promptKey;
+      const text = prompts[key];
+      if (!text) return;
+      const ok = await copyText(text);
+      const textEl = btn.querySelector(".copy-btn-text");
       if (ok) {
         btn.classList.add("copied");
-        const textEl = btn.querySelector(".copy-btn-text");
         const original = textEl ? textEl.textContent : "";
         if (textEl) textEl.textContent = "✅ 복사 완료!";
         showToast("복사됐어요! AI 챗봇에 붙여넣기 하세요 👀");
@@ -72,7 +60,7 @@
           if (textEl) textEl.textContent = original;
         }, 2200);
       } else {
-        showToast("복사 실패 · 텍스트를 직접 선택해 복사해주세요");
+        showToast("복사 실패 · 다시 시도해주세요");
       }
     });
   });

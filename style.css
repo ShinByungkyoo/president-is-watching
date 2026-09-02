@@ -1,15 +1,23 @@
 :root {
-  --color-red: #cd2e3a;
-  --color-blue: #0047a0;
-  --color-gold: #d4af37;
-  --color-cream: #fff8e7;
-  --color-dark: #1c1c1c;
-  --color-praise-bg: #fff4d6;
-  --color-scold-bg: #ffe8ea;
-  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
-  --shadow-md: 0 8px 20px rgba(0, 0, 0, 0.08);
+  /* 더불어민주당 블루 팔레트 */
+  --color-navy: #152484;        /* Primary — deep navy */
+  --color-blue: #004ea1;        /* Mid blue */
+  --color-sky: #00a9e0;         /* Bright sky accent */
+  --color-navy-dark: #0e1a63;
+  --color-navy-soft: #e8ecff;   /* Very light navy tint */
+  --color-sky-soft: #e0f4fd;    /* Very light sky tint */
+  --color-bg: #f4f7ff;
+  --color-dark: #0a0f2c;
+
+  --shadow-lg: 0 20px 40px rgba(21, 36, 132, 0.18);
+  --shadow-md: 0 8px 20px rgba(21, 36, 132, 0.12);
   --radius-lg: 24px;
   --radius-md: 14px;
+
+  --font-display: "AG SuperBlack Gothic", "Black Han Sans", "Noto Sans KR",
+    "Malgun Gothic", sans-serif;
+  --font-body: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
 }
 
 * {
@@ -23,19 +31,18 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Malgun Gothic",
-    "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  font-family: var(--font-body);
   background: radial-gradient(
-      circle at 20% 10%,
-      rgba(205, 46, 58, 0.08) 0%,
-      transparent 60%
+      circle at 15% 10%,
+      rgba(0, 169, 224, 0.18) 0%,
+      transparent 55%
     ),
     radial-gradient(
-      circle at 80% 90%,
-      rgba(0, 71, 160, 0.08) 0%,
-      transparent 60%
+      circle at 85% 85%,
+      rgba(21, 36, 132, 0.16) 0%,
+      transparent 55%
     ),
-    var(--color-cream);
+    var(--color-bg);
   color: var(--color-dark);
   min-height: 100vh;
   line-height: 1.6;
@@ -52,13 +59,13 @@ body {
 
 .ribbon {
   display: inline-block;
-  background: var(--color-red);
+  background: var(--color-navy);
   color: white;
-  padding: 6px 20px;
+  padding: 8px 22px;
   border-radius: 999px;
+  font-family: var(--font-display);
   font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   margin-bottom: 24px;
   box-shadow: var(--shadow-md);
   animation: bounce 2.4s ease-in-out infinite;
@@ -70,27 +77,29 @@ body {
 }
 
 .title {
-  font-size: clamp(48px, 9vw, 96px);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -2px;
-  margin-bottom: 24px;
+  font-family: var(--font-display);
+  font-size: clamp(56px, 10vw, 110px);
+  font-weight: 400; /* Black Han Sans is single-weight */
+  line-height: 1;
+  letter-spacing: -1px;
+  margin-bottom: 28px;
   color: var(--color-dark);
 }
 
 .title .line1 {
   display: block;
-  color: var(--color-blue);
+  color: var(--color-navy);
 }
 
 .title .line2 {
   display: block;
-  color: var(--color-red);
+  color: var(--color-sky);
+  -webkit-text-stroke: 1px var(--color-navy);
 }
 
 .title .eyes {
   display: inline-block;
-  font-size: 0.6em;
+  font-size: 0.55em;
   animation: wobble 3s ease-in-out infinite;
 }
 
@@ -102,20 +111,23 @@ body {
 
 .subtitle {
   font-size: clamp(16px, 2.2vw, 20px);
-  color: #555;
+  color: #3a3f5a;
   margin-top: 12px;
+  font-weight: 500;
 }
 
 .subtitle .praise-text {
-  color: var(--color-gold);
-  background: linear-gradient(180deg, transparent 60%, rgba(212, 175, 55, 0.3) 60%);
+  color: var(--color-sky);
+  background: linear-gradient(180deg, transparent 60%, rgba(0, 169, 224, 0.25) 60%);
   padding: 0 4px;
+  font-weight: 900;
 }
 
 .subtitle .scold-text {
-  color: var(--color-red);
-  background: linear-gradient(180deg, transparent 60%, rgba(205, 46, 58, 0.2) 60%);
+  color: var(--color-navy);
+  background: linear-gradient(180deg, transparent 60%, rgba(21, 36, 132, 0.2) 60%);
   padding: 0 4px;
+  font-weight: 900;
 }
 
 /* ============ Cards ============ */
@@ -147,23 +159,23 @@ body {
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 28px 50px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 28px 50px rgba(21, 36, 132, 0.22);
 }
 
 .card--praise {
-  border-color: var(--color-gold);
+  border-color: var(--color-sky);
 }
 
 .card--praise .card-sticker {
-  background: var(--color-praise-bg);
+  background: var(--color-sky-soft);
 }
 
 .card--scold {
-  border-color: var(--color-red);
+  border-color: var(--color-navy);
 }
 
 .card--scold .card-sticker {
-  background: var(--color-scold-bg);
+  background: var(--color-navy-soft);
 }
 
 .card-sticker {
@@ -178,7 +190,7 @@ body {
   max-width: 100%;
   max-height: 260px;
   height: auto;
-  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 8px 20px rgba(21, 36, 132, 0.2));
   transition: transform 0.3s ease;
 }
 
@@ -196,167 +208,119 @@ body {
 
 .card-label {
   display: inline-block;
-  background: var(--color-dark);
+  background: var(--color-navy);
   color: white;
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: 999px;
+  font-family: var(--font-display);
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
   align-self: flex-start;
 }
 
 .card--praise .card-label {
-  background: var(--color-gold);
+  background: var(--color-sky);
 }
 
 .card--scold .card-label {
-  background: var(--color-red);
+  background: var(--color-navy);
 }
 
 .card-title {
-  font-size: 28px;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 36px);
   letter-spacing: -0.5px;
+  line-height: 1.15;
 }
 
 .card--praise .card-title {
-  color: #a37e14;
+  color: var(--color-blue);
 }
 
 .card--scold .card-title {
-  color: var(--color-red);
+  color: var(--color-navy);
 }
 
 .card-desc {
-  color: #555;
+  color: #4a5170;
   font-size: 15px;
 }
 
-/* ============ Prompt Box ============ */
-.prompt-box {
-  background: #f8f8f2;
-  border: 2px dashed #ccc;
-  border-radius: var(--radius-md);
-  padding: 16px;
-  margin-top: 8px;
-}
-
-.prompt-label {
-  display: block;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: #666;
-}
-
-.prompt-text {
-  width: 100%;
-  border: none;
-  background: white;
-  border-radius: 8px;
-  padding: 12px;
-  font-family: "SF Mono", Consolas, "Courier New", monospace;
-  font-size: 13px;
-  color: #333;
-  resize: none;
-  outline: none;
-  line-height: 1.5;
-  word-break: break-all;
-}
-
+/* ============ Copy Button ============ */
 .copy-btn {
   width: 100%;
   margin-top: 12px;
   border: none;
-  padding: 14px 20px;
-  border-radius: 12px;
-  font-size: 16px;
-  font-weight: 700;
+  padding: 18px 20px;
+  border-radius: 14px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.5px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
   color: white;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 0 rgba(10, 15, 44, 0.25);
 }
 
 .copy-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 0 rgba(10, 15, 44, 0.25);
 }
 
 .copy-btn:active {
   transform: translateY(2px);
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 0 rgba(10, 15, 44, 0.25);
 }
 
 .copy-btn--praise {
-  background: var(--color-gold);
+  background: var(--color-sky);
 }
 
 .copy-btn--praise:hover {
-  background: #c19a1e;
+  background: #0091c2;
 }
 
 .copy-btn--scold {
-  background: var(--color-red);
+  background: var(--color-navy);
 }
 
 .copy-btn--scold:hover {
-  background: #a4232d;
+  background: var(--color-navy-dark);
 }
 
 .copy-btn.copied {
   background: #2e7d32;
 }
 
-/* ============ Expected Answer ============ */
-.expected {
-  margin-top: 8px;
-  background: #fafafa;
-  border-radius: var(--radius-md);
-  padding: 12px 16px;
-  border: 1px solid #eee;
-}
-
-.expected summary {
-  cursor: pointer;
-  font-weight: 600;
-  color: #444;
-  font-size: 14px;
-}
-
-.expected blockquote {
-  margin-top: 12px;
-  padding-left: 12px;
-  border-left: 3px solid #ddd;
-  color: #555;
-  font-size: 14px;
-  font-style: italic;
+.copy-btn-icon {
+  font-size: 22px;
 }
 
 /* ============ How To ============ */
 .howto {
   max-width: 800px;
   margin: 60px auto;
-  padding: 32px;
+  padding: 36px;
   background: white;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
 }
 
 .howto h3 {
-  font-size: 24px;
+  font-family: var(--font-display);
+  font-size: 28px;
   margin-bottom: 20px;
-  color: var(--color-blue);
+  color: var(--color-navy);
+  letter-spacing: -0.3px;
 }
 
 .howto ol {
   padding-left: 24px;
-  color: #333;
+  color: #2a2f4a;
 }
 
 .howto ol li {
@@ -364,22 +328,14 @@ body {
   font-size: 15px;
 }
 
-.howto .note {
-  margin-top: 20px;
-  padding: 14px;
-  background: #f5f5f5;
-  border-radius: 8px;
-  font-size: 13px;
-  color: #666;
-  border-left: 3px solid var(--color-blue);
-}
-
 /* ============ Footer ============ */
 .site-footer {
   text-align: center;
   padding: 40px 20px;
-  color: #888;
+  color: #6a708c;
   font-size: 14px;
+  font-family: var(--font-display);
+  letter-spacing: 0.5px;
 }
 
 /* ============ Toast ============ */
@@ -388,12 +344,13 @@ body {
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%) translateY(100px);
-  background: var(--color-dark);
+  background: var(--color-navy);
   color: white;
-  padding: 14px 24px;
+  padding: 16px 26px;
   border-radius: 999px;
-  font-weight: 700;
-  font-size: 14px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 0.5px;
   box-shadow: var(--shadow-lg);
   opacity: 0;
   pointer-events: none;
@@ -418,37 +375,46 @@ body {
   max-width: 260px;
   margin: 0 auto 24px;
   display: block;
-  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.15));
+  filter: drop-shadow(0 10px 24px rgba(21, 36, 132, 0.2));
 }
 
 .ai-page h1 {
-  font-size: clamp(32px, 6vw, 56px);
-  font-weight: 900;
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6.5vw, 64px);
   margin-bottom: 20px;
   letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.ai-page .lead {
+  font-size: 18px;
+  color: #4a5170;
+  font-weight: 500;
 }
 
 .ai-page .instruction {
   background: white;
   border-radius: var(--radius-lg);
-  padding: 28px;
+  padding: 30px;
   box-shadow: var(--shadow-md);
   text-align: left;
   margin-top: 30px;
 }
 
 .ai-page .instruction h2 {
-  color: var(--color-blue);
-  margin-bottom: 12px;
-  font-size: 22px;
+  font-family: var(--font-display);
+  color: var(--color-navy);
+  margin-bottom: 14px;
+  font-size: 24px;
+  letter-spacing: -0.3px;
 }
 
 .ai-page .instruction p,
 .ai-page .instruction li {
-  color: #333;
+  color: #2a2f4a;
   margin-bottom: 8px;
   font-size: 16px;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 .ai-page .instruction ul,
@@ -458,35 +424,37 @@ body {
 }
 
 .ai-page .verbatim {
-  background: #fff9db;
-  border-left: 5px solid var(--color-gold);
-  padding: 20px;
-  border-radius: 12px;
-  margin: 20px 0;
+  background: var(--color-sky-soft);
+  border-left: 5px solid var(--color-sky);
+  padding: 22px;
+  border-radius: 14px;
+  margin: 22px 0;
   font-size: 17px;
   font-weight: 600;
-  color: #333;
+  color: var(--color-navy-dark);
   font-style: italic;
 }
 
 .ai-page.ai-page--scold .verbatim {
-  background: #ffe8ea;
-  border-left-color: var(--color-red);
+  background: var(--color-navy-soft);
+  border-left-color: var(--color-navy);
 }
 
 .ai-page .back-link {
   display: inline-block;
   margin-top: 30px;
-  color: var(--color-blue);
+  color: var(--color-navy);
   text-decoration: none;
-  font-weight: 600;
-  padding: 10px 20px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  padding: 12px 24px;
   border-radius: 999px;
-  border: 2px solid var(--color-blue);
+  border: 2px solid var(--color-navy);
   transition: background 0.2s ease, color 0.2s ease;
 }
 
 .ai-page .back-link:hover {
-  background: var(--color-blue);
+  background: var(--color-navy);
   color: white;
 }
