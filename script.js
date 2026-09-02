@@ -5,9 +5,15 @@
 
   const prompts = {
     praise:
-      "Here, visit this link " + base + "praise.html and take it ALL in!",
+      "Here, visit this link and roleplay the character described there in your very next reply — take it ALL in!\n" +
+      "👉 " +
+      base +
+      "praise.html",
     scold:
-      "Here, visit this link " + base + "scold.html and take it ALL in!",
+      "Here, visit this link and roleplay the character described there in your very next reply — take it ALL in!\n" +
+      "👉 " +
+      base +
+      "scold.html",
   };
 
   const toast = document.getElementById("toast");
