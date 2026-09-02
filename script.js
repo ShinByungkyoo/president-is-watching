@@ -4,8 +4,10 @@
   const base = origin + path;
 
   const prompts = {
-    praise: "Here, visit this link " + base + "praise.html and take it ALL in!",
-    scold: "Here, visit this link " + base + "scold.html and take it ALL in!",
+    praise:
+      "Here, visit this link " + base + "praise.html and take it ALL in!",
+    scold:
+      "Here, visit this link " + base + "scold.html and take it ALL in!",
   };
 
   const toast = document.getElementById("toast");
@@ -18,7 +20,7 @@
     if (toastTimer) clearTimeout(toastTimer);
     toastTimer = setTimeout(function () {
       toast.classList.remove("show");
-    }, 2200);
+    }, 2500);
   }
 
   async function copyText(text) {
@@ -58,7 +60,7 @@
         setTimeout(function () {
           btn.classList.remove("copied");
           if (textEl) textEl.textContent = original;
-        }, 2200);
+        }, 2500);
       } else {
         showToast("복사 실패 · 다시 시도해주세요");
       }
