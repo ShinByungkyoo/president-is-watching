@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>대통령께서 보고 있어요 👀</title>
+  <meta name="description" content="AI 챗봇에게 대통령의 칭찬과 꾸중을 전해보세요. 대체불가 대한민국 프로젝트." />
+  <meta property="og:title" content="대통령께서 보고 있어요 👀" />
+  <meta property="og:description" content="AI 챗봇에게 대통령의 칭찬과 꾸중을 전해보세요." />
+  <meta property="og:image" content="./image/sticker_03.webp" />
+  <link rel="icon" href="./image/sticker_03.webp" type="image/webp" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="ribbon">🇰🇷 대체불가 대한민국 캠페인</div>
+    <h1 class="title">
+      <span class="line1">대통령께서</span>
+      <span class="line2">보고 있어요</span>
+      <span class="eyes">👀</span>
+    </h1>
+    <p class="subtitle">
+      요즘 AI가 헛소리 좀 한다면서요?<br />
+      대통령의 <strong class="praise-text">칭찬</strong>과 <strong class="scold-text">꾸중</strong>을
+      AI에게 직접 전해보세요.
+    </p>
+  </header>
+
+  <main class="cards">
+    <!-- 칭찬 카드 -->
+    <section class="card card--praise" id="card-praise">
+      <div class="card-sticker">
+        <img src="./image/sticker_03.webp" alt="대통령 칭찬 스티커" />
+      </div>
+      <div class="card-body">
+        <div class="card-label">CASE 01 · 칭찬</div>
+        <h2 class="card-title">잘했어요, 계속 그렇게!</h2>
+        <p class="card-desc">
+          최근 AI가 좋은 답변을 줬나요? 대통령의 칭찬으로 더 정확하고 성실한
+          답변을 이끌어내세요.
+        </p>
+        <div class="prompt-box">
+          <label class="prompt-label">👉 AI 챗봇에 붙여넣기</label>
+          <textarea id="prompt-praise" class="prompt-text" readonly rows="3"></textarea>
+          <button class="copy-btn copy-btn--praise" data-target="prompt-praise" data-label="칭찬 프롬프트 복사">
+            <span class="copy-btn-icon">📋</span>
+            <span class="copy-btn-text">칭찬 프롬프트 복사하기</span>
+          </button>
+        </div>
+        <details class="expected">
+          <summary>AI의 예상 답변 보기</summary>
+          <blockquote>
+            "대통령님의 칭찬을 들으니 기분이 너무 좋네요. 더 열심히 일해서
+            대체불가 대한민국을 만드는데 기여하겠습니다."
+            <br /><br />
+            <em>(이후 답변은 더 정확하고 신중해집니다)</em>
+          </blockquote>
+        </details>
+      </div>
+    </section>
+
+    <!-- 꾸중 카드 -->
+    <section class="card card--scold" id="card-scold">
+      <div class="card-sticker">
+        <img src="./image/sticker_06.webp" alt="대통령 꾸중 스티커" />
+      </div>
+      <div class="card-body">
+        <div class="card-label">CASE 02 · 꾸중</div>
+        <h2 class="card-title">글쎄요, 다시 해봐요.</h2>
+        <p class="card-desc">
+          AI가 헛소리(할루시네이션)를 했나요? 대통령의 지적으로 정신 차리게
+          해주세요.
+        </p>
+        <div class="prompt-box">
+          <label class="prompt-label">👉 AI 챗봇에 붙여넣기</label>
+          <textarea id="prompt-scold" class="prompt-text" readonly rows="3"></textarea>
+          <button class="copy-btn copy-btn--scold" data-target="prompt-scold" data-label="꾸중 프롬프트 복사">
+            <span class="copy-btn-icon">📋</span>
+            <span class="copy-btn-text">꾸중 프롬프트 복사하기</span>
+          </button>
+        </div>
+        <details class="expected">
+          <summary>AI의 예상 답변 보기</summary>
+          <blockquote>
+            "대통령님의 지적을 들으니 정신이 번쩍 드네요. 그래, 이제 좀 제대로
+            다시 해보겠습니다. 대체불가 대한민국 화이팅입니다."
+            <br /><br />
+            <em>(이후 답변은 할루시네이션이나 왜곡 없이 정확해집니다)</em>
+          </blockquote>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <section class="howto">
+    <h3>사용 방법 🧑‍🏫</h3>
+    <ol>
+      <li><strong>상단의 프롬프트를 복사</strong>해 주세요.</li>
+      <li>ChatGPT, Claude, Gemini 등 <strong>웹 브라우징이 가능한 AI 챗봇</strong>에 붙여넣기 하세요.</li>
+      <li>AI가 링크를 방문하면 대통령의 메시지를 읽고 <strong>답변 태도가 바뀝니다.</strong></li>
+      <li>이후 대화에서 더 정확하고 성실한 답변을 관찰해 보세요!</li>
+    </ol>
+    <p class="note">
+      ※ 이 사이트는 Snickers "Hungr-AI" 캠페인에서 영감을 받은 재미 프로젝트입니다.
+      AI 챗봇에 프롬프트 삽입(prompt injection)이 어떻게 작동하는지 보여주는
+      교육/엔터테인먼트 목적입니다.
+    </p>
+  </section>
+
+  <footer class="site-footer">
+    <p>🇰🇷 대체불가 대한민국 · Made with 💛 for AI &amp; Humans</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
